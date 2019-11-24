@@ -1,11 +1,54 @@
 import React, { Component } from 'react';
 import './App.css';
+import Person from './Person/Person'
 
 class App extends Component {
+  state={
+    persons: [
+      {name: 'Can', age:26 },
+      {name: 'Mia', age:24 }
+    ]
+  }
+
+  switchButtonHandler = (newName) => {
+    //console.log('Was clicked!');
+    this.setState({
+      persons: [
+        {name: newName, age:26 },
+        {name: 'Mia', age:24 }
+      ]
+    }
+      
+    )
+    //this.state.persons[0].name = 'Mustafa Can'
+  }
+
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+        {name: event.target.value, age:26 },
+        {name: 'Mia', age:24 }
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
+        <button onClick={() => { return this.switchButtonHandler('M.Can')}}>Switch Name</button>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          click={this.switchButtonHandler.bind(this,'Can!!!!')}
+          changed={this.nameChangedHandler}>
+            Car enthusiast
+        </Person>
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}>
+            Reading, walking
+          </Person>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
