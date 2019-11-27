@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import UserInput from './Practice/UserInput'
+import UserOutput from './Practice/UserOutput'
 
 class App extends Component {
   state={
@@ -49,13 +51,9 @@ class App extends Component {
           age={this.state.persons[1].age}>
             Reading, walking
           </Person>
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
+        <UserInput />
+        <UserOutput name="Can" />
+        <UserOutput name="Mia" />
       </div>
     );
     // return React.createElement('div', null,
@@ -64,3 +62,10 @@ class App extends Component {
 }
 
 export default App;
+        {/* <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p> */}
